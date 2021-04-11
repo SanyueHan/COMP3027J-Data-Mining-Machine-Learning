@@ -17,6 +17,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/Labs/lab_2/model.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/Labs/lab_2/visualization.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
