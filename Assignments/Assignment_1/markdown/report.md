@@ -3,39 +3,17 @@
 
 
 ### 1. Introduction (answer what is the real world problem and why it is important)
-#### 1.1 Why we choose insurance area - from the company aspect
-Four important implement directions of data mining in insurance area are: Determine rates, get new customers, retain old customers, and detect fraud claims. [<sup>1</sup>](#refer-anchor-1)
-##### 1.1.1 Determine the rate:  
-The premium rate is the ratio of the premium to the insured amount. If the premium is fixed and the compensation amount is too large, the premium rate will be very low, which will bring a certain economic burden to the company, and the insurance company will be in an unstable state, which is not conducive to steady development; If the premium rate is too high, for the insured, the insurance premium they bear is not equal to the protection they get, which will cause the loss of customers. The goal of the insurance company is to reduce the risk and cost to the maximum extent, so as to obtain the maximum income. Insurance industry is a typical knowledge intensive industry, which is more suitable for the implementation of knowledge management and data mining technology [<sup>2</sup>](#refer-anchor-2)
+The purpose of linear regression is to predict the trend, find the law, or find a suitable expression for the data to express a certain trend. In this experiment, we used linear regression to analyze the relationship between the individual insurance costs and the individual's own conditions. We believe that our forecast has a certain impact on policyholders, insurance companies, and social development. 
 
-For insurance companies, how to give consideration to the efficiency of claim settlement and risk supervision, and how to mine the data stored by insurance companies to establish a prediction model can help insurance companies to choose insurance types and determine premium rates. [<sup>2</sup>](#refer-anchor-2)
+**For policyholders**: When choosing insurance, this data result helps policyholders to choose the optimal insurance that suits them based on their personal conditions. At the same time, the causality shown by this prediction will also invisibly prompt individuals to pay attention to physical health issues. The results of our forecasts will also help people buy insurance against unpredictable risks in advance and share the risk for the unpredictable future. 
 
-##### 1.1.2 Detect fraud claim:
-Understand the personal insurance data and diagnosis and treatment materials related to customers, select characteristic variables, establish decision-making data model, help insurance companies to carry out customer risk level analysis, customers with risk level within the normal range can get compensation quickly, and the applicants with suspected data should be traced. Through the analysis of the historical data of medical insurance claims cases, we can establish an effective automatic identification mode of fraud cases, improve the operating performance of insurance companies, and promote the healthy, stable and harmonious development of the insurance industry.[<sup>2</sup>](#refer-anchor-2)
+**For insurance companies**: Insurance companies need to receive feedback from society from time to time. By analyzing this information, the insurance companies can keep a balance between the risk and the cost, so as to achieve the maximum benefit; The establishment of decision data model is helpful for enterprises to analyze customer risk level and avoid fraud claim; Data mining can help insurance companies fully explore the value of customers. To be more specific, potential customers may convert them into real customers by using clustering; what’s more, data mining can be applied to customer churn waring analysis for retaining those existing customers. [1]
 
-##### 1.1.3 Reaching new customers: 
-Data mining can help insurance companies fully explore the value of customers and the potential value that customers may bring in each stage of their life cycle. 
-1. In terms of customer identification, provide general characteristics of customer data and identify potential customers by subdividing customer characteristics.
-2. Clustering to classify potential customers in order to convert them into real customers 
-3. Analyze customer demand through the pattern of customers' past purchase behavior, to facilitate the company to provide products that are more suitable for customers. 
+**For society**: The results of this prediction can be used as a basis for people to purchase insurance to a certain extent. When choosing insurance, this forecast can be used as a reference for policyholders to a certain extent. This forecast can effectively avoid the unhealthy trend of blindly setting insurance premiums in the insurance market. In addition, our research will also increase people's attention to insurance. 
 
-##### 1.1.4 Retain old customers：
-In terms of customer retention, data mining can be applied to customer loyalty analysis and customer churn waring analysis. Through the historical transaction behavior of customers, the abnormal behavior of customers or warned, and the purchase change is predicted.
-#### 1.2 Why we choose to mine medical data and the importance of medical data collected from insurance - from the government aspects
-1. With the deepening of population aging in China, the payment pressure of endowment insurance fund is becoming more and more obvious. How to maintain the balance of income and expenditure of endowment insurance fund is an important issue in the development of social security in China. The sustained growth of insurance companies' profits can effectively drive the stable development of the insurance industry in China, thus reducing the burden of social insurance.
-2. Improving the social security system. Identify people who are not willing to be insured by insurance companies and ensure that their medical health can be guaranteed by the national finance. 
-3. The government's partial grasp of this part of data can promote the improvement of malicious competition in the insurance industry. In all kinds of insurance, only life insurance, trauma insurance and disability insurance can carry out risk rating, while health insurance companies cannot offer different prices according to age, gender, health status or family size. The price of insurance products depends on the possibility of individual claims. Due to the lack of laws regulating data mining, the problem of customer privacy becomes more complex. Herman argues that the current privacy law does not provide any protection for individuals as to how information subsequently obtained through data mining will be used. It is particularly problematic to decide who can become a customer according to the categories found by data mining. [<sup>3</sup>](#refer-anchor-3) In order to prevent insurance companies from obtaining people's personal information through improper means to compete for the market, the government can control and use it within the scope of its permission, so as to avoid the immoral use of data mining as far as possible. And protecting the public's personal information from secondary use or abuse.
-4. Mining medical insurance data is an effective way to observe the long-term treatment and recovery of diseases. Raedel Michael Through the digital database of a large national insurance company in Germany, this paper tracks the experimental effect of re intervention of restorative treatment of permanent teeth. He also put forward improvement measures from the perspective of public health and the need of optimized strategies. [<sup>4</sup>](#refer-anchor-4) Shen Chengche used association rule arm to study the complex clinical manifestations of BPD with borderline personality disorder through the data of patients in the National Health Insurance Research Database of Taiwan[<sup>5</sup>](#refer-anchor-5) It can be seen that data mining also has great application prospects in disease research and nursing, which should be taken into consideration by the government.
+Mining medical insurance data is an effective way to observe the long-term treatment and recovery of diseases. Raedel Michael Through the digital database of a large national insurance company in Germany, this paper tracks the experimental effect of re intervention of restorative treatment of permanent teeth. He also put forward improvement measures from the perspective of public health and the need of optimized strategies [2]. It can be seen that data mining also has great application prospects in disease research and nursing, which should be taken into consideration by the government.
 
 In conclusion, our optimism about the prospects of data mining applications in the insurance industry, coupled with the importance of medical data obtained from insurance policies, constitute the reasons why we chose this direction as our subject.
-
-The purpose of linear regression is to predict the trend, find the law, or find a suitable expression for the data to express a certain trend. In this experiment, we used linear regression to analyze the relationship between the individual insurance costs and the individual's own conditions. We believe that our forecast has a certain impact on policyholders, insurance companies, and social development.
-
-For policyholders: When choosing insurance, this data result helps policyholders to choose the optimal insurance that suits them based on their personal conditions. At the same time, the causality shown by this prediction will also invisibly prompt individuals to pay attention to physical health issues. The results of our forecasts will also help people buy insurance against unpredictable risks in advance and share the risk for the unpredictable future.
-
-For insurance companies: We can refer to our analysis when formulating insurance shares. We believe that the results filtered by big data will reflect the ideology of people in the current society. Insurance companies also need to receive feedback on information from time to time. For example, the results of this study reflect that when other factors are the same, the difference in age affects the policyholder's contribution share more than the difference in the region.
-
-For society: The results of this prediction can be used as a basis for people to purchase insurance to a certain extent. When choosing insurance, this forecast can be used as a reference for policyholders to a certain extent. This forecast can effectively avoid the unhealthy trend of blindly setting insurance premiums in the insurance market. In addition, our research will also increase people's attention to insurance.
 
 ### 2. Dataset selection(collection) and Data pre-processing
 
@@ -258,24 +236,123 @@ it is easy to reverse this process or test new data
  'charges': {'min': 1121.8739, 'max': 63770.42801}}
 ```
 
-
-
-
-
-
-
-
-
-
-
 #### 2.4 Any challenges with your dataset?
-
+Nothing challenging currently
 
 
 ### 3. Methodologies 
 > Any machine learning algorithm can be used (not limited to the algorithm we have learned).
 Creativity is encouraged.
 Be careful, a sophisticated approach with little description and explanation will receive little credit.
+
+#### 3.1 One-Degree Multiple Variables Batch Gradient Descent (GD)
+We select the column charges as Y, and the remaining columns joined with a column of 1s as X. 
+```
+X.shape: (1338, 10)
+Y.shape: (1338, 1)
+```
+We refer the gradient decent algorithm introduced in lab2 to finish the linear regression, and the formulas to calculate the gradient is shown as follow: 
+$$
+h(\theta)\text{ is the multiple variable function}
+$$
+
+$$
+h_{\theta_0, \theta_1, \cdots, \theta_j} = \theta_0 x_0+\theta_1 x_1+\theta_2 x_2+\cdots+\theta_j x_j
+$$
+
+$$
+\theta = 
+\begin{bmatrix}
+\theta_0\\\theta_1\\\vdots\\\theta_j
+\end{bmatrix},
+x = 
+\begin{bmatrix}
+x_0\\x_1\\\vdots\\x_j
+\end{bmatrix}
+$$
+
+$$
+h_\theta = \theta^{T}x
+$$
+
+$$
+J(\theta)\text{ is the cost function}
+$$
+
+$$
+J(\theta) = \frac{1}{m}\sum_{i=1}^{m}(\theta^Tx^{(i)}-y^{(i)})^2
+$$
+
+$$
+\text{let } t = \theta_0 x_0^{(i)}+\theta_1 x_1^{(i)}+\cdots+\theta_j x_j^{(i)}-y^{(i)}
+$$
+
+$$
+\text{then, }J(\theta) = \frac{1}{m}\sum_{i=1}^{m}t^2,
+$$
+
+$$
+\frac{\partial J}{\partial \theta_j} = \frac{\partial J}{\partial t}\frac{\partial t}{\partial\theta_j} = \frac{1}{m}\sum_{i=1}^{m}2tx_j^{(i)}
+$$
+
+
+
+
+
+The initial theta vectors are set to all zeros since we assume that we have no knowledge about 
+the contribution of each attribute at the very beginning. 
+
+To get the most suitable argument for learning rate and number of iteration, 
+we come up with an idea that we plot the loss against the number of iteration. 
+
+Here is the figure when the learning rate is set to 0.02 and number of iteration is set to 500. 
+
+![](images/degree_1_lr_002_ni_500.png)
+
+It is shown that the loss descended swiftly at the beginning since the gradient was large, 
+and converged slowly afterwards since the gradient became small. 
+
+If the learning rate or number of iteration are too small, it may not be totally converged after the training, 
+like this figure shows when the learning rate is set to 0.01 and the number of iteration is set to 100:
+
+![](images/degree_1_lr_001_ni_100.png)
+
+However, if the learning rate is too high, the regression may never converge, 
+like this figure shows when the learning rate is set to 0.5 and the number of iteration is set to 20:
+
+![](images/degree_1_lr_05_20.png)
+
+The final result of the one-degree gradient descent model is that 
+the minimum loss is about 0.0093, 
+and the corresponding theta vector is
+```python
+[[-0.04155146] 
+ [ 0.38043647] # is_smoker
+ [-0.00207574] # is_male
+ [-0.01633501] # southwest
+ [-0.01636002] # southeast
+ [-0.00723836] # northwest
+ [-0.00161808] # northeast
+ [ 0.18908899] # age
+ [ 0.18676482] # bmi
+ [ 0.03755355]]# children
+```
+We can compare it with the correlation coefficient calculated previously 
+
+attribute | correlation coefficient | final theta vector
+----------|-------------------------|-------------------
+ones      |                         |-0.04155146
+is_smoker | 0.787251                | 0.38043647
+is_male   | 0.057292                | 0.00207574
+southwest |-0.043210                |-0.01633501
+southeast | 0.073982                |-0.01636002
+northwest |-0.039905                |-0.00723836
+northeast | 0.006349                |-0.00161808
+age       | 0.299008                | 0.18908899
+bmi       | 0.198341                | 0.18676482
+children  | 0.067998                | 0.03755355
+
+#### 3.2 Higher Degree Multiple Variables Linear Regression
 
 
 
@@ -286,14 +363,5 @@ Analysing your results etc.
 
 
 ### References
-<div id="refer-anchor-1"></div>
-- [1] https://wenku.baidu.com/view/07faf62d915f804d2b16c13b.html
-<div id="refer-anchor-2"></div>
-- [2] https://d.wanfangdata.com.cn/thesis/Y2415220
-<div id="refer-anchor-3"></div>
-- [3] AL-SAGGAF, Y. (2015). The Use of Data Mining by Private Health Insurance Companies and Customers’ Privacy: An Ethical Analysis. Cambridge Quarterly of Healthcare Ethics, 24(3), 281-292. doi:10.1017/S0963180114000607
-<div id="refer-anchor-4"></div>
-- [4] Raedel, M., Hartmann, A., Priess, H., Bohm, S., Samietz, S., Konstantinidis, I. & Walter, M.H. 2017, "Re-interventions after restoring teeth--Mining an insurance database", Journal of dentistry, vol. 57, pp. 14-19.
-<div id="refer-anchor-5"></div>
-- [5] Cheng-Che, S., Li-Yu, H. & Ya-Han, H. 2017, "Comorbidity study of borderline personality disorder: applying association rule mining to the Taiwan national health insurance research database", BMC Medical Informatics and Decision Making, vol. 17.
-
+1. https://d.wanfangdata.com.cn/thesis/Y2415220
+2. Raedel, M., Hartmann, A., Priess, H., Bohm, S., Samietz, S., Konstantinidis, I. & Walter, M.H. 2017, "Re-interventions after restoring teeth--Mining an insurance database", Journal of dentistry, vol. 57, pp. 14-19.
