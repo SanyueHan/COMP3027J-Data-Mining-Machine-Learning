@@ -2,7 +2,7 @@
 
 
 
-### 1. Introduction (answer what is the real world problem and why it is important)
+### 1. Introduction
 The purpose of linear regression is to predict the trend, find the law, or find a suitable expression for the data to express a certain trend. In this experiment, we used linear regression to analyze the relationship between the individual insurance costs and the individual's own conditions. We believe that our forecast has a certain impact on policyholders, insurance companies, and social development. 
 
 **For policyholders**: When choosing insurance, this data result helps policyholders to choose the optimal insurance that suits them based on their personal conditions. At the same time, the causality shown by this prediction will also invisibly prompt individuals to pay attention to physical health issues. The results of our forecasts will also help people buy insurance against unpredictable risks in advance and share the risk for the unpredictable future. 
@@ -15,11 +15,7 @@ Mining medical insurance data is an effective way to observe the long-term treat
 
 In conclusion, our optimism about the prospects of data mining applications in the insurance industry, coupled with the importance of medical data obtained from insurance policies, constitute the reasons why we chose this direction as our subject.
 
-### 2. Dataset selection(collection) and Data pre-processing
-
-#### 2.1 Where you find your data (or how do you collect the data and create your dataset)?
-Since we want to practice some linear regression algorithms, we found the data set at [kaggle](https://www.kaggle.com/mirichoi0218/insurance) by searching linear regression related topics. 
-#### 2.2 How do you analyze your data?
+### 2. Literature Review
 Our data set has seven columns:
 - age: age of primary beneficiary
 - sex: insurance contractor gender, female, male
@@ -59,9 +55,58 @@ Therefore, it is reasonable to infer that the charges for an insurance is calcul
 in other words, the first six columns namely age, sex, bmi, number of children, smoke or not, and region should be the independent variable, 
 while the charges should be the dependent variable. 
 Thus, we come up with the idea that a multivariate function could be used to fit their relationship, 
-so that we can predict the insurance cost based on the six main feature of a person. 
-#### 2.3 how to pre-process your data to fit your solution?
-##### 2.3.0 Data
+so that we can predict the insurance cost based on the six main feature of a person.
+
+### 3. Methodologies
+We refer to the gradient descent algorithm introduced in lab2 to finish the linear regression. 
+The formulas involving calculate the gradient is shown as follows: 
+$$
+h(\theta)\text{ is the multiple variable function}
+$$
+
+$$
+h_{\theta_0, \theta_1, \cdots, \theta_j} = \theta_0 x_0+\theta_1 x_1+\theta_2 x_2+\cdots+\theta_j x_j
+$$
+
+$$
+\theta = 
+\begin{bmatrix}
+\theta_0\\\theta_1\\\vdots\\\theta_j
+\end{bmatrix},
+x = 
+\begin{bmatrix}
+x_0\\x_1\\\vdots\\x_j
+\end{bmatrix}
+$$
+
+$$
+h_\theta = \theta^{T}x
+$$
+
+$$
+J(\theta)\text{ is the cost function}
+$$
+
+$$
+J(\theta) = \frac{1}{m}\sum_{i=1}^{m}(\theta^Tx^{(i)}-y^{(i)})^2
+$$
+
+$$
+\text{let } t = \theta_0 x_0^{(i)}+\theta_1 x_1^{(i)}+\cdots+\theta_j x_j^{(i)}-y^{(i)}
+$$
+
+$$
+\text{then, }J(\theta) = \frac{1}{m}\sum_{i=1}^{m}t^2,
+$$
+
+$$
+\frac{\partial J}{\partial \theta_j} = \frac{\partial J}{\partial t}\frac{\partial t}{\partial\theta_j} = \frac{1}{m}\sum_{i=1}^{m}2tx_j^{(i)}
+$$
+
+### 4. Experiment
+#### 4.0 Dataset selection(collection)
+Since we want to practice some linear regression algorithms, we found the data set at [kaggle](https://www.kaggle.com/mirichoi0218/insurance) by searching linear regression related topics.
+
 The following is the head of our raw data
 ```
    age     sex     bmi  children smoker     region      charges
@@ -71,8 +116,8 @@ The following is the head of our raw data
 3   33    male  22.705         0     no  northwest  21984.47061
 4   32    male  28.880         0     no  northwest   3866.85520
 ```
-
-##### 2.3.1 Data Cleaning
+#### 4.1 Data Preprocessing
+##### 4.1.1 Data Cleaning
 Firstly we need to see how many invalid entries are there in each column. 
 [pandas.DataFrame.isnull](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isnull.html) is helpful for this calculation. 
 The result is shown like this:
@@ -88,7 +133,7 @@ dtype: int64
 ```
 There is no invalid entry in this data set so this stage could be omitted. 
 
-##### 2.3.2 Encoding
+##### 4.1.2 Encoding
 The following is information of the data frame
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -152,8 +197,8 @@ memory usage: 104.7 KB
 ```
 Since all the features are numeric now, we can go on to the next stage. 
 
-##### 2.3.3 Data Observation
-###### 2.3.3.1 Distribution
+##### 4.1.3 Data Observation
+###### 4.1.3.1 Distribution
 In order to get an overview of the dataset, 
 we plot the distributions of the variables firstly. 
 
@@ -167,7 +212,7 @@ It is shown that
 - about one out of four are smoker, 
 - the portion of people leaving in southwest, southeast, northwest, and northeast have no significant difference, almost evenly distributed. 
 
-###### 2.3.3.2 Correlations
+###### 4.1.3.2 Correlations
 There are 10 independent variables in our data set after the one hot encoding. 
 Some of them may have a strong relationship with the insurance cost, while some of them may not. 
 To figure out which variables have the most significant contribution, we could use [pandas.DataFrame.corr](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html)
@@ -198,7 +243,7 @@ And we could also plot the scatter matrix to visualize the relationship between 
 
 ![scatter matrix](images/scatter_matrix.png)
 
-##### 2.3.4 Feature Scaling
+##### 4.1.4 Feature Scaling
 Since we have seen that in the previous plot there are no outliers in this data set, 
 so we choose the min-max scaling method for feature scaling.
 
@@ -236,68 +281,12 @@ it is easy to reverse this process or test new data
  'charges': {'min': 1121.8739, 'max': 63770.42801}}
 ```
 
-#### 2.4 Any challenges with your dataset?
-Nothing challenging currently
-
-
-### 3. Methodologies 
-> Any machine learning algorithm can be used (not limited to the algorithm we have learned).
-Creativity is encouraged.
-Be careful, a sophisticated approach with little description and explanation will receive little credit.
-
-#### 3.1 One-Degree Multiple Variables Batch Gradient Descent (GD)
+#### 4.2 One-Degree Multiple Variables Batch Gradient Descent (GD)
 We select the column charges as Y, and the remaining columns joined with a column of 1s as X. 
 ```
 X.shape: (1338, 10)
 Y.shape: (1338, 1)
 ```
-We refer the gradient decent algorithm introduced in lab2 to finish the linear regression, and the formulas to calculate the gradient is shown as follow: 
-$$
-h(\theta)\text{ is the multiple variable function}
-$$
-
-$$
-h_{\theta_0, \theta_1, \cdots, \theta_j} = \theta_0 x_0+\theta_1 x_1+\theta_2 x_2+\cdots+\theta_j x_j
-$$
-
-$$
-\theta = 
-\begin{bmatrix}
-\theta_0\\\theta_1\\\vdots\\\theta_j
-\end{bmatrix},
-x = 
-\begin{bmatrix}
-x_0\\x_1\\\vdots\\x_j
-\end{bmatrix}
-$$
-
-$$
-h_\theta = \theta^{T}x
-$$
-
-$$
-J(\theta)\text{ is the cost function}
-$$
-
-$$
-J(\theta) = \frac{1}{m}\sum_{i=1}^{m}(\theta^Tx^{(i)}-y^{(i)})^2
-$$
-
-$$
-\text{let } t = \theta_0 x_0^{(i)}+\theta_1 x_1^{(i)}+\cdots+\theta_j x_j^{(i)}-y^{(i)}
-$$
-
-$$
-\text{then, }J(\theta) = \frac{1}{m}\sum_{i=1}^{m}t^2,
-$$
-
-$$
-\frac{\partial J}{\partial \theta_j} = \frac{\partial J}{\partial t}\frac{\partial t}{\partial\theta_j} = \frac{1}{m}\sum_{i=1}^{m}2tx_j^{(i)}
-$$
-
-
-
-
 
 The initial theta vectors are set to all zeros since we assume that we have no knowledge about 
 the contribution of each attribute at the very beginning. 
@@ -352,13 +341,57 @@ age       | 0.299008                | 0.18908899
 bmi       | 0.198341                | 0.18676482
 children  | 0.067998                | 0.03755355
 
-#### 3.2 Higher Degree Multiple Variables Linear Regression
+#### 4.3 Higher Degree Multiple Variables Polynomial Regression
+Although one degree linear regression could give a good prediction which has an error smaller than 1%, 
+it is not perfect for this dataset. 
+The reason is that from common sense we know that a very high bmi or a very low bmi are all not health, 
+only the one in the middle are in best condition, 
+and from the relationship between age and charge we could see that it is not a straight line, 
+instead, it is a curve with a positive second-degree derivative, 
+in other words charge is more sensitive in the increasing of age if a person is old. 
+This information tell us that a higher degree model could have a better performance in predicting the charge. 
+
+To implement polynomial regression, we need to generate a new feature matrix 
+consisting of all polynomial combinations of the features with degree less than or equal to the specified degree. 
+Fortunately, [sklearn.preprocessing.PolynomialFeatures](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html)
+could help us finish this task easily. 
+$$
+\text{example: } [a, b] \rightarrow [1, a, b, a^2, ab, b^2]
+$$
+
+Then, similar to the previous section, we can train a polynomial regression model as a linear regression model using gradient descent algorithm. 
+However, this time we have multiple model with the same learning rate and different degrees. 
+We can plot the changing history of loss in the same figure, as shown in the following:
+
+![](images/degree_5_lr_001_ni_100.png)
+
+It is easy to see that the higher the degree of the model, 
+the faster the convergence will be, and the lower the final cost will reach. 
+
+We can set a convergence condition to let the algorithm to auto-decide whether the gradient descent has converged or not, 
+if the difference in loss between two adjacent iteration is smaller than a threshold value, 
+the regression is defined to be converged. In this experiment the threshold is set to 0.00000001. 
+Under this definition, the number of iteration and the minimum loss of different models are:
+
+|                     | degree 1 | degree 2 | degree 3 | degree 4 
+|---------------------|----------|----------|----------|---------
+| number of iteration | 1109     | 4203     | 7858     | 12050
+| minimum loss        | 0.009302 | 0.005694 | 0.005462 | 0.005218
+
+We can plot the converged loss in models against different degree. 
+
+![](images/final_loss_versus_degree.png)
+
+Here at the degree of 2 there is an obvious elbow, 
+indicating the degree higher than 2 will not bring performance improvement as much as from degree 1 to degree 2. 
+And maybe with high degree there is overfitting issues, which leads to the validation in out next section. 
 
 
+### 4.4 Validation
+to be continued: K-fold
 
-### 4. Evaluation
-> Elaborate your experiment, such as splitting dataset, K-fold; Compare your solution with benchmarks in literature; Evaluation metrics for your task;
-Analysing your results etc.
+
+### 5. Conclusion
 
 
 
