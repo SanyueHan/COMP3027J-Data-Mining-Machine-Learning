@@ -1,4 +1,13 @@
 ### 0. Abstract
+In this assignment, we implemented linear regression algorithms on a personal medical cost datasets 
+to forecast insurance cost. We firstly discussed the purpose of this project, 
+from the perspective of policyholders, insurance companies, and society. 
+Then we introduce the attributes of our dataset, as well as related works. 
+Afterwards, we derived the formulas involving calculating the gradient for the regression, 
+and the algorithm for iteration. 
+We conducted our experiment by using one hot encoding and min-max scaling to preprocess the data, 
+implement multiple variable gradient descent and higher degree polynomial regression to find the best way to predicting, 
+and also applied K-fold method to validate the model and detect overfitting. 
 
 
 
@@ -16,7 +25,9 @@ Mining medical insurance data is an effective way to observe the long-term treat
 In conclusion, our optimism about the prospects of data mining applications in the insurance industry, coupled with the importance of medical data obtained from insurance policies, constitute the reasons why we chose this direction as our subject.
 
 ### 2. Literature Review
-Our data set has seven columns:
+We found our data set at [kaggle](https://www.kaggle.com/mirichoi0218/insurance)
+
+The data set is about insurance cost prediction. Tt has seven columns:
 - age: age of primary beneficiary
 - sex: insurance contractor gender, female, male
 - bmi: Body mass index, providing an understanding of body, weights that are relatively high or low relative to height,
@@ -26,36 +37,8 @@ objective index of body weight (kg / m ^ 2) using the ratio of height to weight,
 - region: the beneficiary's residential area in the US, northeast, southeast, southwest, northwest.
 - charges: Individual medical costs billed by health insurance
 
-According to common sense it is easy to know that:
-- age: 
-  - With age, the possibility of getting sick also increases. 
-  - The incidence of different diseases varies at different ages.  
-  - Therefore, even if people of different ages insured the same product, the premiums payable are different.  
-  - **Forecast: within a certain range, the younger you are, the cheaper your insurance premium will be.**    
-- sex: Men and women face different risks.
-  - The life span of men is generally lower than that of women.
-  - Men are more likely to get cancer than women, and the mortality rate is higher than that of women.   
-  - There are differences in lifestyles between men and women: Generally speaking, men have more bad habits than women, such as smoking and drinking. Moreover, Men were also less aware of their own health and less likely to go to hospital.
-  - Men’s social pressure is greater: in China's family economy at present, there are still more male-dominated families. Men face greater economic pressure and more intense social competition.  
-  - **Prediction: In the case of critical illness insurance and life insurance, in most cases men pay more than women; In the case of accident and medical insurance, there is generally no gender difference in premiums.**
-- bmi: 
-  - The health condition of the insured will affect the premium paid.
-  - The insurance company will assess the risk based on the insured’s physical condition. If there is a relevant medical history or the physical condition is poor, the health notification may not be available, and additional fees are required for underwriting, and the premium will be higher, of course.  
-**Prediction: We guess that the premium paid by Bmi between 18-24 will be cheaper, because the calculated value within this range is recognized as healthy and normal.**    
-- smoker: 
-  - Smoking can cause lung cancer, and 90% of the total mortality is caused by smoking. Smoking can also cause blood clots, and it can trigger all kinds of heart disease. Therefore, the mortality rate of these smokers will also increase, and additional premiums are usually required.
-  - **Forecast: For people who smoke, their premiums will be higher**
-- region:
-  - Various environmental factors such as different living habits, behavioral habits, and different climates in the place can affect the individual's physical condition. For example, high salt and cold can lead to high blood pressure, and there are more people with high blood pressure in colder regions; in addition, the difference in diet between North and South is relatively large, and fine grains and large meat will bring obesity, so there are more obese patients in some areas.
-- children:
-  - The cost of raising multiple children is relatively high. The pressure on parents is greater，when there are more children. Compared to parents with fewer children, parents with many children are more anxious and will have some physical problems. In addition, families with more children put their parents' retirement at greater risk. Therefore, for policyholders with more children, their insurance premiums will increase accordingly.
-  - **Prediction: For policyholders, when they have more children, their insurance premiums will be higher when other factors are the same.**  
+> other people's work on this data set
 
-Therefore, it is reasonable to infer that the charges for an insurance is calculated based on the health condition and the lifestyle of the insured person, 
-in other words, the first six columns namely age, sex, bmi, number of children, smoke or not, and region should be the independent variable, 
-while the charges should be the dependent variable. 
-Thus, we come up with the idea that a multivariate function could be used to fit their relationship, 
-so that we can predict the insurance cost based on the six main feature of a person.
 
 ### 3. Methodologies
 We refer to the gradient descent algorithm introduced in lab2 to finish the linear regression. 
@@ -104,9 +87,8 @@ $$
 $$
 
 ### 4. Experiment
-#### 4.0 Dataset selection(collection)
-Since we want to practice some linear regression algorithms, we found the data set at [kaggle](https://www.kaggle.com/mirichoi0218/insurance) by searching linear regression related topics.
-
+#### 4.1 Data Preprocessing
+##### 4.1.0 Data Analysis
 The following is the head of our raw data
 ```
    age     sex     bmi  children smoker     region      charges
@@ -116,7 +98,37 @@ The following is the head of our raw data
 3   33    male  22.705         0     no  northwest  21984.47061
 4   32    male  28.880         0     no  northwest   3866.85520
 ```
-#### 4.1 Data Preprocessing
+After analyzing we could know that:
+- age: 
+  - With age, the possibility of getting sick also increases. 
+  - The incidence of different diseases varies at different ages.  
+  - Therefore, even if people of different ages insured the same product, the premiums payable are different.  
+  - **Forecast: within a certain range, the younger you are, the cheaper your insurance premium will be.**    
+- sex: Men and women face different risks.
+  - The life span of men is generally lower than that of women.
+  - Men are more likely to get cancer than women, and the mortality rate is higher than that of women.   
+  - There are differences in lifestyles between men and women: Generally speaking, men have more bad habits than women, such as smoking and drinking. Moreover, Men were also less aware of their own health and less likely to go to hospital.
+  - Men’s social pressure is greater: in China's family economy at present, there are still more male-dominated families. Men face greater economic pressure and more intense social competition.  
+  - **Prediction: In the case of critical illness insurance and life insurance, in most cases men pay more than women; In the case of accident and medical insurance, there is generally no gender difference in premiums.**
+- bmi: 
+  - The health condition of the insured will affect the premium paid.
+  - The insurance company will assess the risk based on the insured’s physical condition. If there is a relevant medical history or the physical condition is poor, the health notification may not be available, and additional fees are required for underwriting, and the premium will be higher, of course.  
+**Prediction: We guess that the premium paid by Bmi between 18-24 will be cheaper, because the calculated value within this range is recognized as healthy and normal.**    
+- smoker: 
+  - Smoking can cause lung cancer, and 90% of the total mortality is caused by smoking. Smoking can also cause blood clots, and it can trigger all kinds of heart disease. Therefore, the mortality rate of these smokers will also increase, and additional premiums are usually required.
+  - **Forecast: For people who smoke, their premiums will be higher**
+- region:
+  - Various environmental factors such as different living habits, behavioral habits, and different climates in the place can affect the individual's physical condition. For example, high salt and cold can lead to high blood pressure, and there are more people with high blood pressure in colder regions; in addition, the difference in diet between North and South is relatively large, and fine grains and large meat will bring obesity, so there are more obese patients in some areas.
+- children:
+  - The cost of raising multiple children is relatively high. The pressure on parents is greater，when there are more children. Compared to parents with fewer children, parents with many children are more anxious and will have some physical problems. In addition, families with more children put their parents' retirement at greater risk. Therefore, for policyholders with more children, their insurance premiums will increase accordingly.
+  - **Prediction: For policyholders, when they have more children, their insurance premiums will be higher when other factors are the same.**
+
+Therefore, it is reasonable to infer that the charges for an insurance is calculated based on the health condition and the lifestyle of the insured person, 
+in other words, the first six columns namely age, sex, bmi, number of children, smoke or not, and region should be the independent variable, 
+while the charges should be the dependent variable. 
+Thus, we come up with the idea that a multivariate function could be used to fit their relationship, 
+so that we can predict the insurance cost based on the six main feature of a person.
+
 ##### 4.1.1 Data Cleaning
 Firstly we need to see how many invalid entries are there in each column. 
 [pandas.DataFrame.isnull](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isnull.html) is helpful for this calculation. 
@@ -373,10 +385,13 @@ if the difference in loss between two adjacent iteration is smaller than a thres
 the regression is defined to be converged. In this experiment the threshold is set to 0.00000001. 
 Under this definition, the number of iteration and the minimum loss of different models are:
 
-|                     | degree 1 | degree 2 | degree 3 | degree 4 
-|---------------------|----------|----------|----------|---------
-| number of iteration | 1109     | 4203     | 7858     | 12050
-| minimum loss        | 0.009302 | 0.005694 | 0.005462 | 0.005218
+degree | number of iteration | minimum loss
+-------|---------------------|-------------
+ 1     | 1109                | 0.009302    
+ 2     | 4203                | 0.005694    
+ 3     | 7858                | 0.005462    
+ 4     | 12050               | 0.005218
+
 
 We can plot the converged loss in models against different degree. 
 
@@ -388,11 +403,36 @@ And maybe with high degree there is overfitting issues, which leads to the valid
 
 
 ### 4.4 Validation
-to be continued: K-fold
+To validation the performance of model and see if there is overfitting issues, 
+the models should be trained on train set and tested on test set. 
+The [K-fold Cross Validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) method could ensure that all data participate equally train set ot test set K times. 
+
+The result of a 2-Fold validation is shown as following: 
+
+![](images/2-fold.png)
+
+It shows that starts at the degree higher than 2,
+there is more and more serious overfitting problems. 
+
+The overfitting could be reduced by simply adding more data in each train set, 
+like this figure shows when K is set to 5, indicating there are 60% more data than the previous one in each train-set process: 
+
+![](images/5-fold.png)
+
+Nevertheless, the most important method to reduce overfitting is that we should constrain the model which is too complicated, 
+by reduced the degree of polynomial. In this experiment the best model should have 2-degree. 
 
 
 ### 5. Conclusion
-
+The result of our experiment shown that using a linear regression model whose degree is one
+could predict the insurance cost with error smaller than 1%, 
+using a polynomial regression model whose degree is two could bring more precise prediction. 
+However, if the degree of the model is higher than 2, 
+the overfitting problem becomes serious, 
+and the loss on test set indicates that the performance will not continue improving as the degree of polynomial grows. 
+Another good way to reduce overfitting is to use hyperparameter, 
+so than when measure cost the sum of parameter value (vector theta) are also counted, 
+but due to the limitation of the page number, this method is not introduced. 
 
 
 ### References
