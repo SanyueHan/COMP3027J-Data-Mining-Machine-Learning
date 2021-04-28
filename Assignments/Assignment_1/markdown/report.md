@@ -27,7 +27,7 @@ In conclusion, our optimism about the prospects of data mining applications in t
 ### 2. Literature Review
 We found our data set at [kaggle](https://www.kaggle.com/mirichoi0218/insurance)
 
-The data set is about insurance cost prediction. Tt has seven columns:
+The data set is about insurance cost prediction. It has seven columns:
 - age: age of primary beneficiary
 - sex: insurance contractor gender, female, male
 - bmi: Body mass index, providing an understanding of body, weights that are relatively high or low relative to height,
@@ -41,8 +41,8 @@ objective index of body weight (kg / m ^ 2) using the ratio of height to weight,
 
 
 ### 3. Methodologies
-We refer to the gradient descent algorithm introduced in lab2 to finish the linear regression. 
-The formulas involving calculate the gradient is shown as follows: 
+We refer to the [gradient descent algorithm](https://en.wikipedia.org/wiki/Gradient_descent#:~:text=Gradient%20descent%20is%20a%20first,the%20direction%20of%20steepest%20descent.) to finish the linear regression. 
+#### 3.1 Calculating the Gradient of Cost Function
 $$
 h(\theta)\text{ is the multiple variable function}
 $$
@@ -86,9 +86,32 @@ $$
 \frac{\partial J}{\partial \theta_j} = \frac{\partial J}{\partial t}\frac{\partial t}{\partial\theta_j} = \frac{1}{m}\sum_{i=1}^{m}2tx_j^{(i)}
 $$
 
+#### 3.2 Iteration of Model
+$$
+\text{for every iteration: } \theta = \theta - lr\frac{\partial J}{\partial \theta}
+$$
+
+$$
+\text{that is }
+\begin{bmatrix}
+\theta_0\\\theta_1\\\vdots\\\theta_j
+\end{bmatrix}
+=
+\begin{bmatrix}
+\theta_0\\\theta_1\\\vdots\\\theta_j
+\end{bmatrix}
+-
+\begin{bmatrix}
+lr\frac{\partial J}{\partial \theta_0}\\
+lr\frac{\partial J}{\partial \theta_1}\\
+\vdots\\
+lr\frac{\partial J}{\partial \theta_j}
+\end{bmatrix}
+$$
+
+
 ### 4. Experiment
-#### 4.1 Data Preprocessing
-##### 4.1.0 Data Analysis
+#### 4.1 Data Exploration
 The following is the head of our raw data
 ```
    age     sex     bmi  children smoker     region      charges
@@ -129,7 +152,8 @@ while the charges should be the dependent variable.
 Thus, we come up with the idea that a multivariate function could be used to fit their relationship, 
 so that we can predict the insurance cost based on the six main feature of a person.
 
-##### 4.1.1 Data Cleaning
+#### 4.2 Data Preprocessing
+##### 4.2.1 Data Cleaning
 Firstly we need to see how many invalid entries are there in each column. 
 [pandas.DataFrame.isnull](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isnull.html) is helpful for this calculation. 
 The result is shown like this:
@@ -145,7 +169,7 @@ dtype: int64
 ```
 There is no invalid entry in this data set so this stage could be omitted. 
 
-##### 4.1.2 Encoding
+##### 4.2.2 Encoding
 The following is information of the data frame
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -209,8 +233,7 @@ memory usage: 104.7 KB
 ```
 Since all the features are numeric now, we can go on to the next stage. 
 
-##### 4.1.3 Data Observation
-###### 4.1.3.1 Distribution
+##### 4.2.3 Distribution
 In order to get an overview of the dataset, 
 we plot the distributions of the variables firstly. 
 
@@ -224,7 +247,7 @@ It is shown that
 - about one out of four are smoker, 
 - the portion of people leaving in southwest, southeast, northwest, and northeast have no significant difference, almost evenly distributed. 
 
-###### 4.1.3.2 Correlations
+##### 4.2.4 Correlations
 There are 10 independent variables in our data set after the one hot encoding. 
 Some of them may have a strong relationship with the insurance cost, while some of them may not. 
 To figure out which variables have the most significant contribution, we could use [pandas.DataFrame.corr](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html)
@@ -255,7 +278,7 @@ And we could also plot the scatter matrix to visualize the relationship between 
 
 ![scatter matrix](images/scatter_matrix.png)
 
-##### 4.1.4 Feature Scaling
+##### 4.2.5 Feature Scaling
 Since we have seen that in the previous plot there are no outliers in this data set, 
 so we choose the min-max scaling method for feature scaling.
 
@@ -293,7 +316,8 @@ it is easy to reverse this process or test new data
  'charges': {'min': 1121.8739, 'max': 63770.42801}}
 ```
 
-#### 4.2 One-Degree Multiple Variables Batch Gradient Descent (GD)
+#### 4.3 Training Details
+##### 4.3.1 One-Degree Multiple Variables Batch Gradient Descent (GD)
 We select the column charges as Y, and the remaining columns joined with a column of 1s as X. 
 ```
 X.shape: (1338, 10)
@@ -353,7 +377,7 @@ age       | 0.299008                | 0.18908899
 bmi       | 0.198341                | 0.18676482
 children  | 0.067998                | 0.03755355
 
-#### 4.3 Higher Degree Multiple Variables Polynomial Regression
+##### 4.3.2 Higher Degree Multiple Variables Polynomial Regression
 Although one degree linear regression could give a good prediction which has an error smaller than 1%, 
 it is not perfect for this dataset. 
 The reason is that from common sense we know that a very high bmi or a very low bmi are all not health, 
