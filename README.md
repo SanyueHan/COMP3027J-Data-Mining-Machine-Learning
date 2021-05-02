@@ -8,6 +8,7 @@ A UCD module, in which contains several practicing labs and two graded assignmen
     - [Week 03 Lab](Labs/lab_1/Week_01_Lab.ipynb): Higher Degree Polynomial Regression & Validation
 - [Assignments](Assignments)
     - [Assignment 1](Assignments/Assignment_1/Assignment_1_total.ipynb): Solve a real world problem
+    - [Assignment 2](Assignments/Assignment_2/Assignment_2_total.ipynb): Stock market forecasting competition
 
 ### Environment
 Conda
