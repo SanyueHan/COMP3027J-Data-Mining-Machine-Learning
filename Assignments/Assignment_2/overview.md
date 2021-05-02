@@ -1,7 +1,7 @@
 ## [Overview](https://www.kaggle.com/c/comp3027j-assignment-2-bdic2021/overview)
 
 ### Description
-This is the BDIC COMP3027J Data Minning and Machine Learning Assignment 2.
+This is the BDIC COMP3027J Data Mining and Machine Learning Assignment 2.
 
 The research of the stock market is currently one of the hottest topics in the field of data mining and machine learning. The purpose of this assignment is to discover how to use data mining and machine learning to solve the real stock market problem. The evaluation method for stock market forecasts will use stock returns. This assignment is a group project, and each group should have four members. Each group only needs to submit one solution.
 
@@ -28,7 +28,7 @@ Result Format:
 
 
 ### Pre-Test Experiment
-For everyone to test the model and test the submission result format, this assignment will provide a pre-test training experiment (the first two weeks of the actual prediction phase). The order of 50 stocks is the same as the sample data. The pre-test training data set will provide the daily opening price, closing price, highest price, lowest price, adjust the closing price and trading volume of each stock. The prediction results can be uploaded to Kaggle for evaluation and ranking to check whether the model predicts correctly and whether the format of the model result is correct.
+For everyone to test the model and test the submission result format, this assignment will provide a pre-test training experiment (the first two weeks of the actual prediction phase). The order of 50 stocks is the same as the sample data. The pre-test training data set will provide the daily opening price, closing price, the highest price, the lowest price, adjust the closing price and trading volume of each stock. The prediction results can be uploaded to Kaggle for evaluation and ranking to check whether the model predicts correctly and whether the format of the model result is correct.
 
 The pre-test phase will start on May 10th and end on May 23rd. Training data can be obtained from Kaggle Dataset. After the pre-test phase is over, we will clear the leaderboard and no longer accept test data.
 
@@ -48,6 +48,6 @@ May 24th ~ May 28th: Prediction target
 
 May 25th: Submit report and code
 
-May 29th: Final Learder board release
+May 29th: Final Leader board release
 
 May 31st ~ June 4th: Interview
