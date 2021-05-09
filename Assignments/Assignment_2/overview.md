@@ -30,7 +30,7 @@ Result Format:
 ### Pre-Test Experiment
 For everyone to test the model and test the submission result format, this assignment will provide a pre-test training experiment (the first two weeks of the actual prediction phase). The order of 50 stocks is the same as the sample data. The pre-test training data set will provide the daily opening price, closing price, the highest price, the lowest price, adjust the closing price and trading volume of each stock. The prediction results can be uploaded to Kaggle for evaluation and ranking to check whether the model predicts correctly and whether the format of the model result is correct.
 
-The pre-test phase will start on May 10th and end on May 23rd. Training data can be obtained from Kaggle Dataset. After the pre-test phase is over, we will clear the leaderboard and no longer accept test data.
+The pre-test phase will start on May 3rd and end on May 16st. Training data can be obtained from Kaggle Dataset. After the pre-test phase is over, we will clear the leaderboard and no longer accept test data.
 
 Please note that in the pre-training phase, only each set of forecast data can be uploaded. Do not upload real-time stock data to avoid interference with the leaderboard. (Teams whose answers are exactly the same as the test set will be removed and will not be allowed to participate in the pre-test)
 
