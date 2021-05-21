@@ -65,4 +65,4 @@ You may select up to 1 submission to be used to count towards your final leaderb
 
 Your final score may not be based on the same exact subset of data as the public leaderboard, but rather a different private data subset of your full submission — your public score is only a rough indication of what your final score is.
 
-You should thus choose submissions that will most likely be best overall, and not necessarily on the public subset.
+You should thus choose submissions that will most likely be the best overall, and not necessarily on the public subset.
