@@ -1,7 +1,7 @@
 import os
 import random
 
-DIR = "data/pretest/pretest_answer/"
+DIR = "data/api/"
 MAX = "2021-04-30"
 MIN = "2021-04-23"
 PAIRS = [
@@ -32,7 +32,7 @@ def calculate_returns(path):
 
 
 def disturb(return_list):
-    fade = 0.3
+    fade = 0.999
     noise = 0
     return [r*fade+(random.random()-0.5)*noise for r in return_list]
 

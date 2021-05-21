@@ -1,6 +1,6 @@
 import os
 
-DIR = "data/pretest/pretest_answer/"
+DIR = "data/api/"
 
 
 def calculate_return(close_final, close_init):
