@@ -51,3 +51,18 @@ May 25th: Submit report and code
 May 29th: Final Leader board release
 
 May 31st ~ June 4th: Interview
+
+
+## [Rules](https://www.kaggle.com/c/comp3027j-assignment-2-bdic2021/rules)
+This is a page where you can include rules that participants must accept before joining. You may wish to include rules like:
+- Don't cheat!
+- Apply yourself!
+- Have fun!
+
+
+## [My Submissions](https://www.kaggle.com/c/comp3027j-assignment-2-bdic2021/submissions)
+You may select up to 1 submission to be used to count towards your final leaderboard score. If 1 submission are not selected, they will be automatically chosen based on your best submission scores on the public leaderboard. In the event that automatic selection is not suitable, manual selection instructions will be provided in the competition rules or by official forum announcement.
+
+Your final score may not be based on the same exact subset of data as the public leaderboard, but rather a different private data subset of your full submission — your public score is only a rough indication of what your final score is.
+
+You should thus choose submissions that will most likely be best overall, and not necessarily on the public subset.
