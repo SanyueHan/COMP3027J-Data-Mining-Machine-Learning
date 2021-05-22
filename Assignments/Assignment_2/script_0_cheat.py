@@ -14,9 +14,7 @@ PAIRS = [
 ]
 
 
-def calculate_return(tup_final, tup_init):
-    close_final = float(tup_final[-1])
-    close_init = float(tup_init[-1])
+def calculate_return(close_final, close_init):
     return 100 * (close_final - close_init) / close_init
 
 
@@ -26,7 +24,7 @@ def calculate_returns(path):
         for line in history:
             row = line[:-1].split(',')
             if MIN <= row[0] <= MAX:
-                d[row[0]] = tuple(row[1:-2])
+                d[row[0]] = float(row[4])
 
     return [calculate_return(d[p[0]], d[p[1]]) for p in PAIRS]
 

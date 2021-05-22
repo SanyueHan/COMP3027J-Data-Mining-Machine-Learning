@@ -3,7 +3,7 @@ import os
 DIR = "data/api/"
 
 
-def calculate_return(close_final, close_init):
+def calculate_return(close_init, close_final):
     return 100 * (close_final - close_init) / close_init
 
 
@@ -21,7 +21,7 @@ def calculate_returns(path):
             if len(closes) == 3:
                 closes.pop(0)
             if len(closes) == 2:
-                total += calculate_return(closes[1], closes[0])
+                total += calculate_return(closes[0], closes[1])
                 count += 1
     average = total / count
     return [average for _ in range(5)] + [(((100+average)/100)**5-1)*100]
