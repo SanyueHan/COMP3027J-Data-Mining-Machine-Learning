@@ -34,6 +34,6 @@ def disturb(return_list):
 if __name__ == '__main__':
     with open("pretest_answer_0.csv", "w") as answer:
         answer.write("tickers,return_day_1,return_day_2,return_day_3,return_day_4,return_day_5,return_week\n")
-        for name in sorted(os.listdir(DIR)):
-            contents = [name.split('.')[0], *[f"{r:.2f}" for r in disturb(accurate_returns(DIR + name))]]
+        for name in sorted(os.listdir(RAW)):
+            contents = [name.split('.')[0], *[f"{r:.2f}" for r in disturb(accurate_returns(RAW + name))]]
             answer.write(','.join(contents) + '\n')

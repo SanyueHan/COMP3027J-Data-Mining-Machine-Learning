@@ -22,6 +22,6 @@ def daily_statistics(path):
 if __name__ == '__main__':
     with open("daily_return_statistics.csv", "w") as answer:
         answer.write("tickers,average_return,max_return,min_return,return_variance\n")
-        for name in sorted(os.listdir(DIR)):
-            contents = [name.split('.')[0], *[f"{r:.4f}" for r in daily_statistics(DIR + name)]]
+        for name in sorted(os.listdir(RAW)):
+            contents = [name.split('.')[0], *[f"{r:.4f}" for r in daily_statistics(RAW + name)]]
             answer.write(','.join(contents) + '\n')

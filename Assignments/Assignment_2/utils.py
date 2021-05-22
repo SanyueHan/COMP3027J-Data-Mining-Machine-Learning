@@ -1,7 +1,8 @@
 import os
 
 
-DIR = "data/api/"
+RAW = "data/raw/"
+PRE = "data/preprocessed/"
 
 
 def calculate_return(close_init, close_final):
