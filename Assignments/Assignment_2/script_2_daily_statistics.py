@@ -1,10 +1,4 @@
-import os
-
-DIR = "data/api/"
-
-
-def calculate_return(close_init, close_final):
-    return 100 * (close_final - close_init) / close_init
+from utils import *
 
 
 def calculate_returns(path):

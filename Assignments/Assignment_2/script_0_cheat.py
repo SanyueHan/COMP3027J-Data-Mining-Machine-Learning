@@ -1,7 +1,7 @@
-import os
 import random
+from utils import *
 
-DIR = "data/api/"
+
 MAX = "2021-04-30"
 MIN = "2021-04-23"
 PAIRS = [
@@ -12,10 +12,6 @@ PAIRS = [
     ("2021-04-29", "2021-04-30"),
     ("2021-04-23", "2021-04-30"),
 ]
-
-
-def calculate_return(close_init, close_final):
-    return 100 * (close_final - close_init) / close_init
 
 
 def calculate_returns(path):
