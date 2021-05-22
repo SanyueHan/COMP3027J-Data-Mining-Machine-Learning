@@ -1,7 +1,7 @@
 from utils import *
 
 
-def calculate_returns(path):
+def average_returns(path):
     total = 0
     count = 0
     with open(path, "r") as history:
@@ -25,5 +25,5 @@ if __name__ == '__main__':
     with open("pretest_answer_1.csv", "w") as answer:
         answer.write("tickers,return_day_1,return_day_2,return_day_3,return_day_4,return_day_5,return_week\n")
         for name in sorted(os.listdir(DIR)):
-            contents = [name.split('.')[0], *[f"{r:.2f}" for r in calculate_returns(DIR+name)]]
+            contents = [name.split('.')[0], *[f"{r:.2f}" for r in average_returns(DIR + name)]]
             answer.write(','.join(contents) + '\n')
