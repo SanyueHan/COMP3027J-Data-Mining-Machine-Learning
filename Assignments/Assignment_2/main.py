@@ -27,4 +27,4 @@ model.plot_loss_history()
 
 
 # 2-fold validation for 1-4 degrees
-print(k_fold_validation(X, Y, 2, 0.01, 100))
+k_fold_validation(X, Y, 2, 0.01, 100)

@@ -3,6 +3,9 @@ import os
 
 RAW = "data/raw/"
 PRE = "data/preprocessed/"
+AUG = "data/augmented/"
+ADD = "data/add/"
+LEN = 5
 
 
 def calculate_return(close_init, close_final):
