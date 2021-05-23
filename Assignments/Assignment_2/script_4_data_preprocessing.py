@@ -1,9 +1,6 @@
 from utils import *
 
 
-LEN = 5
-
-
 def read_weeks(path):
     """
     split days in to week list
@@ -66,7 +63,10 @@ def create_dataset(path, return_list):
     with open(path, "w") as file:
         file.write(','.join([f"{i}_week_before" for i in range(LEN, 0, -1)] + ["target"]) + '\n')
         for i in range(LEN, len(return_list)):
-            file.write(','.join(str(return_list[i-j]) for j in range(LEN, -1, -1)) + '\n')
+            variables = [return_list[i-j] for j in range(LEN, -1, -1)]
+            if all(variables):
+                # in case duplicated price problem
+                file.write(','.join(map(str, variables)) + '\n')
 
 
 def main():
