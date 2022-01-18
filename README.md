@@ -11,4 +11,14 @@ A UCD module, in which contains several practicing labs and two graded assignmen
     - [Assignment 2](Assignments/Assignment_2/Assignment_2_total.ipynb): Stock market forecasting competition
 
 ### Environment
-Conda
+##### Conda
+
+
+##### pip
+```shell
+pip install jupyter
+```
+
+```shell
+jupyter notebook
+```
